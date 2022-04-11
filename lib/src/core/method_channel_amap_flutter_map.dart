@@ -33,6 +33,14 @@ class MethodChannelAMapFlutterMap implements AMapFlutterPlatform {
     return channel.invokeMethod<void>('map#waitForMap');
   }
 
+  /// 更新Marker的显示
+  // Future<void> showMarkerInfoWindow() {
+  //   return channel(mapId).invokeMethod<void>(
+  //     'markers#infoWindowShow',
+  //     markerUpdates.toMap(),
+  //   );
+  // }
+
   ///更新地图参数
   Future<void> updateMapOptions(
     Map<String, dynamic> newOptions, {

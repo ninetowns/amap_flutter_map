@@ -69,6 +69,8 @@
             _markerDict[markerModel.id_] = markerModel;
         }
         [self.mapView addAnnotation:markerModel.annotation];
+         //[self.mapView selectAnnotation:mapView.annotation animated:true];
+         //[self.mapView showAnnotations:annotations animated:YES];
     }
 }
 

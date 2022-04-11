@@ -3,6 +3,7 @@ package com.amap.flutter.map.overlays.marker;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
+import com.amap.flutter.map.utils.LogUtil;
 
 /**
  * @author whm
@@ -101,10 +102,12 @@ class MarkerController implements MarkerOptionsSink {
         marker.setClickable(clickable);
     }
 
+    @Override
     public void showInfoWindow() {
         marker.showInfoWindow();
     }
 
+    @Override
     public void hideInfoWindow() {
         marker.hideInfoWindow();
     }

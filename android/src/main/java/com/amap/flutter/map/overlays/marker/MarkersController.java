@@ -100,12 +100,16 @@ public class MarkersController
                 MarkerOptions markerOptions = builder.build();
                 final Marker marker = amap.addMarker(markerOptions);
                 Object clickable = ConvertUtil.getKeyValueFromMapObject(markerObj, "clickable");
+                Object showInfoWindow = ConvertUtil.getKeyValueFromMapObject(markerObj, "showInfoWindow");
                 if (null != clickable) {
                     marker.setClickable(ConvertUtil.toBoolean(clickable));
                 }
                 MarkerController markerController = new MarkerController(marker);
                 controllerMapByDartId.put(dartMarkerId, markerController);
                 idMapByOverlyId.put(marker.getId(), dartMarkerId);
+                if (null != showInfoWindow && ConvertUtil.toBoolean(showInfoWindow)) {
+                    markerController.showInfoWindow();
+                }
             }
         }
 

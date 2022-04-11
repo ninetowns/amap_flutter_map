@@ -92,6 +92,7 @@ class Marker extends BaseOverlay {
     this.zIndex = 0.0,
     this.onTap,
     this.onDragEnd,
+    this.showInfoWindow=false
   })  : this.alpha =
             // ignore: unnecessary_null_comparison
             (alpha != null ? (alpha < 0 ? 0 : (alpha > 1 ? 1 : alpha)) : alpha),
@@ -149,6 +150,8 @@ class Marker extends BaseOverlay {
   /// Marker被拖拽结束的回调
   final MarkerDragEndCallback? onDragEnd;
 
+  final bool showInfoWindow;
+
   /// copy的真正复制的参数，主要用于需要修改某个属性参数时使用
   Marker copyWith({
     double? alphaParam,
@@ -159,6 +162,7 @@ class Marker extends BaseOverlay {
     bool? infoWindowEnableParam,
     InfoWindow? infoWindowParam,
     LatLng? positionParam,
+    bool? showInfoWindowParam,
     double? rotationParam,
     bool? visibleParam,
     ArgumentCallback<String?> ? onTapParam,
@@ -173,6 +177,7 @@ class Marker extends BaseOverlay {
       infoWindowEnable: infoWindowEnableParam ?? infoWindowEnable,
       infoWindow: infoWindowParam ?? infoWindow,
       position: positionParam ?? position,
+      showInfoWindow:showInfoWindowParam??showInfoWindow,
       rotation: rotationParam ?? rotation,
       visible: visibleParam ?? visible,
       zIndex: zIndex,
@@ -202,6 +207,7 @@ class Marker extends BaseOverlay {
     addIfPresent('draggable', draggable);
     addIfPresent('icon', icon.toMap());
     addIfPresent('infoWindowEnable', infoWindowEnable);
+    addIfPresent('showInfoWindow', showInfoWindow);
     addIfPresent('infoWindow', infoWindow._toMap());
     addIfPresent('position', position.toJson());
     addIfPresent('rotation', rotation);
